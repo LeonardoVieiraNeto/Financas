@@ -1,0 +1,22 @@
+﻿@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="@Url.Action("Autentica")" method="post">
+  @Html.ValidationMessage("login.Invalido")
+
+  <br />
+
+  <label for="login">Login:</label>
+  <input id="login" type="text" name="login" class="form-control" />
+  <br />
+
+  <label for="senha">Senha:</label>
+  <input id="senha" type="password" name="senha" class="form-control" />
+
+  <br />
+
+  <input type="submit" value="Autenticar" />
+</form>
+

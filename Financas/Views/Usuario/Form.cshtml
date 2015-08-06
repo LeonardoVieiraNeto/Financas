@@ -1,22 +1,33 @@
-﻿@model Financas.Entidades.Usuario
+﻿@model Financas.Models.UsuarioModel
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using(Html.BeginForm("Adiciona", "Usuario", FormMethod.Post))
+<h2>Form</h2>
+
+@using (Html.BeginForm("Adiciona", "Usuario", FormMethod.Post))
 {
+  @Html.ValidationMessage("usuario.Invalido")
+
   @Html.LabelFor(u => u.Nome, "Nome:")
-  @Html.TextBoxFor(u => u.Nome, new { @class = "form-control"})
+  @Html.TextBoxFor(u => u.Nome, new { @class = "form-control" })
   @Html.ValidationMessageFor(u => u.Nome)
 
-  @Html.LabelFor(u => u.Email, "Email:")
+  @Html.LabelFor(u => u.Email, "E-mail:")
   @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
   @Html.ValidationMessageFor(u => u.Email)
 
+  @Html.LabelFor(u => u.Senha, "Senha:")
+  @Html.PasswordFor(u => u.Senha, new { @class = "form-control" })
+  @Html.ValidationMessageFor(u => u.Senha)
+
+  @Html.LabelFor(u => u.ConfirmacaoSenha, "Confirme a senha:")
+  @Html.PasswordFor(u => u.ConfirmacaoSenha, new { @class = "form-control" })
+  @Html.ValidationMessageFor(u => u.ConfirmacaoSenha)
+
   <br />
-
-  <input type="submit" value="Enviar" />
+  
+  <input type="submit" value="Cadastrar" />
 }
-
